@@ -3,22 +3,18 @@
 // 782 -> 8
 // 918 -> 1
 
-int Prompt(string message)
+int Prompt(string msg)
 {
-
-    Console.Write(message);
-    string value = Console.ReadLine();
-    int result = Convert.ToInt32(value);
-    return result;
-
+    Console.WriteLine($"{ msg}");
+    return Convert.ToInt32(Console.ReadLine());
 }
-
-int number = Prompt("enter a three-digit number");
-if (number < 100 || number >= 1000)
+int number = Prompt("Введите трехзначное число");
+if (number >= 100 && number < 1000)
 {
-    Console.WriteLine("YOur are enter not three digit number try again");
-    return;
+    int mid = number /10 % 10;
+    Console.WriteLine($"Вторая цифра числа {number} является {mid}");
 }
-Console.WriteLine($"enter number {number}");
-int secondRank = number / 10 % 10;
-Console.WriteLine($"Second number {secondRank}");
+else
+{
+    Console.WriteLine("Это число не трехзначное");
+}
